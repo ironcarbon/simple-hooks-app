@@ -12,6 +12,12 @@ class ResourceList extends React.Component {
         this.setState({ propy: response.data })
     }
 
+    async componentDidUpdate(prevProps) {
+        if (prevProps.propy !== this.props.propy) {
+            const response = await axios.get(`https://jsonplaceholder.typicode.com/${this.props.propy}`)
+            this.setState({ propy: response.data })
+        }
+    }
 
     render() {
         return <div>{this.state.propy.length}</div>;
