@@ -13,6 +13,7 @@ const ResourceList = ({ propy }) => {
 
         setResources(response.data);
     }
+
     useEffect(() => {
         fetchResource(propy)
     }, [propy])
@@ -26,7 +27,11 @@ const ResourceList = ({ propy }) => {
     // }
 
 
-    return <div>{resources.length}</div>;
+    return (
+        <div>{resources.map(record => (
+            <li key={record.id}>{record.title}</li>
+        ))}</div>
+    )
 
 }
 export default ResourceList;
