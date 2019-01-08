@@ -15,7 +15,7 @@ const ResourceList = ({ propy }) => {
     }
     useEffect(() => {
         fetchResource(propy)
-    }, [])
+    }, [propy])
 
 
     // async componentDidUpdate(prevProps) {
